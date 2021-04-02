@@ -4,20 +4,22 @@ void selection_sort(int arr[], int n);
 
 void selection_sort(int arr[], int n)
 {
-	int i, j;
-	
+	int i, j, min = 0;
+
 	for(i = 0; i < n; i++)
 	{
+	    min = i;
 	    for(j = i + 1; j < n; j++)
-	    {
-	        if(arr[j] < arr[i])
-		{
-		    int temp = arr[i];
-		    arr[i] = arr[j];
-		    arr[j] = temp;
-		 }
-	    }
-	}
+            {
+		if(arr[j] < arr[min])
+		    min = j;
+            }
+
+	    int temp = arr[min];
+	    arr[min] = arr[i];
+	    arr[i] = temp;
+        }
+
 }
 
 void display(int arr[], int n)
